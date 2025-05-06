@@ -52,6 +52,9 @@ function startRest(btn) {
   }, 1000);
 }
 window.addEventListener('DOMContentLoaded', async () => {
+  // ← この行を追加してモーダルを確実に非表示にする
+  document.getElementById('ad-modal').classList.add('hidden');
+
   const { data: { user } } = await supabase.auth.getUser();
   if (user) {
     document.getElementById('auth').classList.add('hidden');
