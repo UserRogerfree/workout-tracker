@@ -40,3 +40,8 @@ button:nth-of-type(1) {
 button:nth-of-type(1):hover {
   background-color: #1e7e34;
 }
+
+
+h1 {
+  text-align: center;
+}
