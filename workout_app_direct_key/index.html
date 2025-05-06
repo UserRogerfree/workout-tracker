@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./main.js"></script>
+  <script>
+    // 🔐 ここにあなたの Supabase 情報を入力してください
+    const SUPABASE_URL = "https://sqtizbrsjgjtlconmzcf.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxdGl6YnJzamdqdGxjb25temNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5MjI2MzQsImV4cCI6MjA2MTQ5ODYzNH0.BY5_HiLu3Gt7sGylN5xC1UX7S2kiPe-FkOYcU166BdE";
+    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Workout Tracker</h1>
+    <div id="auth">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <button onclick="signup()">Sign Up</button>
+    </div>
+    <div id="app" class="hidden">
+      <button onclick="logout()">Logout</button>
+      <h2>Today's Workout</h2>
+      <input type="date" id="date">
+      <input type="text" id="exercise" placeholder="Exercise">
+      <input type="number" id="weight" placeholder="Weight (kg)">
+      <input type="number" id="reps" placeholder="Reps">
+      <select id="type">
+        <option value="Standard">Standard</option>
+        <option value="Drop Set">Drop Set</option>
+        <option value="Super Set">Super Set</option>
+      </select>
+      <input type="text" id="comment" placeholder="Comment (optional)">
+      <button onclick="saveWorkout()">Save Set</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
