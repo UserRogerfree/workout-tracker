@@ -17,17 +17,17 @@
   <div class="container">
     <h1>Workout Tracker</h1>
     <div id="auth">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="login()">Login</button>
-      <button onclick="signup()">Sign Up</button>
+      <input type="email" id="email" placeholder="Email" class="input-field">
+      <input type="password" id="password" placeholder="Password" class="input-field">
+      <button onclick="login()" class="action-btn">Login</button>
+      <button onclick="signup()" class="action-btn">Sign Up</button>
     </div>
     <div id="app" class="hidden">
-      <button onclick="logout()">Logout</button>
+      <button onclick="logout()" class="action-btn">Logout</button>
       <h2>Today's Workout</h2>
-      <input type="date" id="date">
+      <input type="date" id="date" class="input-field">
       <div id="workout-area"></div>
-      <button onclick="addExercise()">+ Add Exercise</button>
+      <button onclick="addExercise()" class="add-exercise-btn">+ Add Exercise</button>
     </div>
   </div>
   <div id="ad-modal" class="hidden">

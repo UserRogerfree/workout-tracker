@@ -11,54 +11,36 @@ body {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
-input, select, button, textarea {
+.input-field, .action-btn {
   display: block;
   width: 100%;
   padding: 12px;
-  margin-top: 10px;
+  margin: 10px 0;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
 }
-button {
+.action-btn {
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
 }
-button:hover {
+.action-btn:hover {
   background-color: #0056b3;
-}
-button.complete-btn {
-  width: auto;
-  margin-left: 5px;
-  background-color: #28a745;
-}
-button.complete-btn:hover {
-  background-color: #1e7e34;
 }
 .hidden {
   display: none;
 }
-.exercise-block {
+.add-exercise-btn {
+  background-color: #28a745;
+  color: white;
   margin-top: 20px;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-  width: 100%;
 }
-.set-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-.set-row input, .set-row select, .set-row textarea {
-  flex: 1 1 20%;
-  min-width: 80px;
+.add-exercise-btn:hover {
+  background-color: #1e7e34;
 }
 #ad-modal {
   position: fixed;
@@ -77,8 +59,6 @@ button.complete-btn:hover {
   border-radius: 12px;
   text-align: center;
 }
-
-
-#ad-modal.hidden {
-  display: none !important;
+h1, h2 {
+  text-align: center;
 }

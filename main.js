@@ -21,16 +21,16 @@ function addExercise() {
   const exercise = document.createElement('div');
   exercise.className = 'exercise-block';
   exercise.innerHTML = `
-    <input type="text" placeholder="Exercise Name" class="exercise-name">
+    <input type="text" placeholder="Exercise Name" class="input-field">
     <div class="set-row">
-      <input type="number" placeholder="Weight">
-      <input type="number" placeholder="Reps">
-      <select>
+      <input type="number" placeholder="Weight" class="input-field">
+      <input type="number" placeholder="Reps" class="input-field">
+      <select class="input-field">
         <option>Standard</option>
         <option>Drop Set</option>
         <option>Super Set</option>
       </select>
-      <textarea placeholder="Comment"></textarea>
+      <textarea placeholder="Comment" class="input-field"></textarea>
       <button class="complete-btn" onclick="startRest(this)">✓</button>
     </div>
   `;
@@ -52,9 +52,7 @@ function startRest(btn) {
   }, 1000);
 }
 window.addEventListener('DOMContentLoaded', async () => {
-  // ← この行を追加してモーダルを確実に非表示にする
   document.getElementById('ad-modal').classList.add('hidden');
-
   const { data: { user } } = await supabase.auth.getUser();
   if (user) {
     document.getElementById('auth').classList.add('hidden');
