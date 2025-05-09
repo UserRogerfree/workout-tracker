@@ -36,6 +36,14 @@ function addExercise() {
   `;
   container.appendChild(exercise);
 }
+async function loadHistory() {
+  const { data, error } = await supabase.from('workout_sets').select('*').order('date', { ascending: false });
+  console.log(data, error);
+}
+async function loadTemplate() {
+  const { data, error } = await supabase.from('templates').select('*');
+  console.log(data, error);
+}
 function startRest(btn) {
   const modal = document.getElementById('ad-modal');
   const timerDisplay = document.getElementById('ad-timer');
