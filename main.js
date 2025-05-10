@@ -36,35 +36,23 @@ function addExercise() {
   `;
   container.appendChild(exercise);
 }
-async function loadHistory() {
-  const { data, error } = await supabase.from('workout_sets').select('*').order('date', { ascending: false });
-  console.log(data, error);
-}
-async function loadTemplate() {
-  const { data, error } = await supabase.from('templates').select('*');
-  console.log(data, error);
-}
 function startRest(btn) {
   const modal = document.getElementById('ad-modal');
   const timerDisplay = document.getElementById('ad-timer');
   modal.classList.remove('hidden');
   let seconds = 120;
+
   const interval = setInterval(() => {
     const m = Math.floor(seconds / 60);
     const s = String(seconds % 60).padStart(2, '0');
     timerDisplay.textContent = `Rest: ${m}:${s}`;
+
     if (seconds-- <= 0) {
       clearInterval(interval);
-      modal.classList.add('hidden');
+      modal.classList.add('hidden');  // 確実に広告を閉じる処理
     }
   }, 1000);
 }
-window.addEventListener('DOMContentLoaded', async () => {
-  document.getElementById('ad-modal').classList.add('hidden');
-  const { data: { user } } = await supabase.auth.getUser();
-  if (user) {
-    document.getElementById('auth').classList.add('hidden');
-    document.getElementById('app').classList.remove('hidden');
-    document.getElementById('date').value = new Date().toISOString().split('T')[0];
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('ad-modal').classList.add('hidden');  // 初期化時に広告を非表示に設定
 });
