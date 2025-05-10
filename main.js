@@ -39,6 +39,11 @@ function addExercise() {
 function startRest(btn) {
   const modal = document.getElementById('ad-modal');
   const timerDisplay = document.getElementById('ad-timer');
+  
+  // 広告モーダルの強制初期化（hiddenクラスを強制適用）
+  modal.classList.add('hidden');
+
+  // ✓完了ボタンを押した時のみ広告を表示
   modal.classList.remove('hidden');
   let seconds = 120;
 
@@ -49,10 +54,12 @@ function startRest(btn) {
 
     if (seconds-- <= 0) {
       clearInterval(interval);
-      modal.classList.add('hidden');  // 確実に広告を閉じる処理
+      modal.classList.add('hidden');  // タイマー終了時に強制的に広告を閉じる
     }
   }, 1000);
 }
+
+// ページ初期化時に広告モーダルを完全非表示に設定
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('ad-modal').classList.add('hidden');  // 初期化時に広告を非表示に設定
+  document.getElementById('ad-modal').classList.add('hidden');
 });
