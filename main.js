@@ -1,7 +1,12 @@
+// Supabase initialization
+const SUPABASE_URL = "https://sqtizbrsjgjtlconmzcf.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxdGl6YnJzamdqdGxjb25temNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5MjI2MzQsImV4cCI6MjA2MTQ5ODYzNH0.BY5_HiLu3Gt7sGylN5xC1UX7S2kiPe-FkOYcU166BdE";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
   if (error) return alert(error.message);
   location.reload();
 }
@@ -9,13 +14,13 @@ async function login() {
 async function signup() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  const { error } = await supabase.auth.signUp({ email, password });
+  const { error } = await supabaseClient.auth.signUp({ email, password });
   if (error) return alert(error.message);
   alert("Sign-up successful!");
 }
 
 async function logout() {
-  await supabase.auth.signOut();
+  await supabaseClient.auth.signOut();
   location.reload();
 }
 
@@ -26,7 +31,7 @@ function addExercise() {
   exercise.innerHTML = `
     <input type="text" placeholder="Exercise Name" class="input-field">
     <div class="set-row">
-      <input type="number" placeholder="Weight" class="input-field">
+      <input type="number" placeholder="Weight (kg)" class="input-field">
       <input type="number" placeholder="Reps" class="input-field">
       <select class="input-field">
         <option>Standard</option>
@@ -58,9 +63,10 @@ function startRest(btn) {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const modal = document.getElementById('ad-modal');
-  modal.classList.remove('active');  // ensure hidden
-  const { data: { user } } = await supabase.auth.getUser();
+  // Ensure ad modal is hidden
+  document.getElementById('ad-modal').classList.remove('active');
+  // Authentication check
+  const { data: { user } } = await supabaseClient.auth.getUser();
   if (user) {
     document.getElementById('auth').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
