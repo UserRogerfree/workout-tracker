@@ -1,29 +1,34 @@
-// Supabase initialization
-const SUPABASE_URL = "https://sqtizbrsjgjtlconmzcf.supabase.co";
+// —— Supabase 初期化 ——
+// ↓ ここをあなたの値に置き換えてください
+const SUPABASE_URL     = "https://sqtizbrsjgjtlconmzcf.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxdGl6YnJzamdqdGxjb25temNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5MjI2MzQsImV4cCI6MjA2MTQ5ODYzNH0.BY5_HiLu3Gt7sGylN5xC1UX7S2kiPe-FkOYcU166BdE";
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient   = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// ログイン
 async function login() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-  if (error) return alert(error.message);
-  location.reload();
+  if (error) { alert(error.message); return; }
+  window.location.reload();
 }
 
+// サインアップ
 async function signup() {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const { error } = await supabaseClient.auth.signUp({ email, password });
-  if (error) return alert(error.message);
-  alert("Sign-up successful!");
+  if (error) { alert(error.message); return; }
+  alert("Sign-up successful! Please check your email to confirm.");
 }
 
+// ログアウト
 async function logout() {
   await supabaseClient.auth.signOut();
-  location.reload();
+  window.location.reload();
 }
 
+// エクササイズ追加
 function addExercise() {
   const container = document.getElementById('workout-area');
   const exercise = document.createElement('div');
@@ -39,12 +44,13 @@ function addExercise() {
         <option>Super Set</option>
       </select>
       <textarea placeholder="Comment" class="input-field"></textarea>
-      <button class="complete-btn action-btn" onclick="startRest(this)">✓</button>
+      <button class="complete-btn btn" onclick="startRest(this)">✓</button>
     </div>
   `;
   container.appendChild(exercise);
 }
 
+// レストタイマー＋広告モーダル制御
 function startRest(btn) {
   const modal = document.getElementById('ad-modal');
   const timerDisplay = document.getElementById('ad-timer');
@@ -62,10 +68,11 @@ function startRest(btn) {
   }, 1000);
 }
 
+// 初期化処理
 window.addEventListener('DOMContentLoaded', async () => {
-  // Ensure ad modal is hidden
+  // 広告を確実に非表示
   document.getElementById('ad-modal').classList.remove('active');
-  // Authentication check
+  // 認証チェック
   const { data: { user } } = await supabaseClient.auth.getUser();
   if (user) {
     document.getElementById('auth').classList.add('hidden');

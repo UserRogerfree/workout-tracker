@@ -4,35 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Workout Tracker</title>
-  <link rel="stylesheet" href="./style.css">
-  <!-- Supabase JS SDK -->
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Supabase SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Main JS -->
-  <script defer src="./main.js"></script>
+  <script defer src="main.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Workout Tracker</h1>
-    <div id="auth">
+  <header class="header">
+    <h1 class="title">Workout Tracker</h1>
+  </header>
+  <main class="card">
+    <!-- Authentication -->
+    <section id="auth">
       <input type="email" id="email" placeholder="Email" class="input-field">
       <input type="password" id="password" placeholder="Password" class="input-field">
-      <button onclick="login()" class="action-btn">Login</button>
-      <button onclick="signup()" class="action-btn">Sign Up</button>
-    </div>
-    <div id="app" class="hidden">
-      <button onclick="logout()" class="action-btn">Logout</button>
+      <div class="button-group">
+        <button onclick="login()" class="btn primary">Login</button>
+        <button onclick="signup()" class="btn secondary">Sign Up</button>
+      </div>
+    </section>
+
+    <!-- App (hidden until login) -->
+    <section id="app" class="hidden">
+      <div class="top-bar">
+        <button onclick="logout()" class="btn secondary small">Logout</button>
+      </div>
       <h2>Today's Workout</h2>
       <input type="date" id="date" class="input-field">
-      <div id="workout-area"></div>
-      <button onclick="addExercise()" class="add-exercise-btn">+ Add Exercise</button>
-      <button onclick="loadHistory()" class="action-btn">Load History</button>
-      <button onclick="loadTemplate()" class="action-btn">Load Template</button>
-    </div>
-  </div>
-  <div id="ad-modal">
+      <div id="workout-area" class="workout-area"></div>
+      <button onclick="addExercise()" class="btn add-btn">+ Add Exercise</button>
+      <div class="button-group template-group">
+        <button onclick="loadHistory()" class="btn tertiary">Load History</button>
+        <button onclick="loadTemplate()" class="btn tertiary">Load Template</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Advertisement Modal -->
+  <div id="ad-modal" class="ad-modal">
     <div class="ad-content">
-      <p>Advertisement</p>
-      <div id="ad-timer">Rest: 2:00</div>
+      <p class="ad-text">Advertisement</p>
+      <div id="ad-timer" class="ad-timer">Rest: 2:00</div>
     </div>
   </div>
 </body>
