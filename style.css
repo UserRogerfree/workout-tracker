@@ -1,132 +1,82 @@
-/* Reset & Basics */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 body {
-  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
   background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  font-family: 'Poppins', sans-serif;
   color: #334e68;
 }
-.header { text-align: center; padding: 40px 0; }
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #102a43;
+.header {
+  text-align: center; padding: 40px 0;
 }
-
-/* Card Container */
+.title {
+  font-size: 2.5rem; font-weight: 700; color: #102a43;
+}
 .card {
-  max-width: 640px;
-  margin: -30px auto 40px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 32px;
+  max-width: 640px; margin: -30px auto 40px;
+  background: #fff; border-radius: 16px; padding: 32px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
-
-/* Input Fields */
 .input-field {
-  width: 100%;
-  padding: 14px 18px;
-  margin: 12px 0;
-  border: 2px solid #bcccdc;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  width: 100%; padding: 14px 18px; margin: 12px 0;
+  border: 2px solid #bcccdc; border-radius: 10px;
+  font-size: 1rem; transition: border-color 0.2s;
 }
-.input-field:focus {
-  border-color: #486581;
-  outline: none;
-}
-
-/* Buttons */
+.input-field:focus { border-color: #486581; outline: none; }
 .btn {
-  padding: 12px 20px;
-  margin: 8px 4px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
+  padding: 12px 20px; margin: 8px 4px;
+  font-size: 1rem; border-radius: 8px;
+  border: none; cursor: pointer; font-weight: 600;
   transition: background 0.2s;
 }
-.primary {
-  background: #0b69ff;
-  color: #fff;
-}
+.primary { background: #0b69ff; color: #fff; }
 .primary:hover { background: #0954cc; }
-.secondary {
-  background: #38a3a5;
-  color: #fff;
-}
+.secondary { background: #38a3a5; color: #fff; }
 .secondary:hover { background: #2e8384; }
 .tertiary {
-  background: transparent;
-  color: #334e68;
+  background: transparent; color: #334e68;
   border: 2px solid #334e68;
 }
 .tertiary:hover {
-  background: #334e68;
-  color: #f0f4f8;
+  background: #334e68; color: #f0f4f8;
 }
 .small { padding: 6px 12px; font-size: 0.85rem; }
-
-/* Button Groups */
 .button-group {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex; justify-content: center; flex-wrap: wrap;
 }
 .template-group { margin-top: 20px; }
-
-/* Add Exercise Button */
 .add-btn {
-  display: block;
-  width: 100%;
-  background: #ff7b54;
-  color: #fff;
+  display: block; width: 100%;
+  background: #ff7b54; color: #fff;
   margin-top: 24px;
 }
 .add-btn:hover { background: #e06c47; }
-
-/* Workout Area */
 .workout-area { margin-top: 20px; }
 .exercise-block { margin-bottom: 24px; }
-
-/* Set Row */
 .set-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr) auto;
-  gap: 12px;
-  margin-top: 12px;
+  display: grid; grid-template-columns: repeat(4,1fr) auto;
+  gap: 12px; margin-top: 12px;
 }
 textarea.input-field {
-  grid-column: 1 / span 4;
-  resize: vertical;
+  grid-column: 1 / span 4; resize: vertical;
 }
-
-/* Complete Button */
 .complete-btn {
-  background: #14b8a6;
-  padding: 12px;
+  background: #14b8a6; padding: 12px;
 }
 .complete-btn:hover { background: #0e8a7e; }
-
-/* Advertisement Modal */
 .ad-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  display: none; position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   backdrop-filter: blur(4px);
-  justify-content: center;
-  align-items: center;
+  justify-content: center; align-items: center;
 }
 .ad-modal.active { display: flex; }
 .ad-content {
-  background: #ffffff;
-  padding: 24px 32px;
-  border-radius: 12px;
-  text-align: center;
+  background: #fff; padding: 24px 32px;
+  border-radius: 12px; text-align: center;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
 }
-.ad-text { font-size: 1.25rem; font-weight: 600; color: #102a43; }
+.ad-text {
+  font-size: 1.25rem; font-weight: 600;
+  color: #102a43;
+}
 .ad-timer { margin-top: 12px; font-weight: 600; }
