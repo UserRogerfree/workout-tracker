@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Workout Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">Workout Tracker</h1>
+    <button id="mode-toggle" class="btn small">🌙</button>
+  </header>
+  <main class="card">
+    <section id="auth">
+      <input type="email" id="email" placeholder="Email" class="input-field">
+      <input type="password" id="password" placeholder="Password" class="input-field">
+      <div class="button-group">
+        <button onclick="login()" class="btn primary">Login</button>
+        <button onclick="signup()" class="btn secondary">Sign Up</button>
+      </div>
+    </section>
+    <section id="app" class="hidden">
+      <div class="top-bar">
+        <button onclick="logout()" class="btn secondary small">Logout</button>
+      </div>
+      <h2>Today's Workout</h2>
+      <input type="date" id="date" class="input-field">
+      <div id="summary" class="summary-card"></div>
+      <div id="workout-area" class="workout-area"></div>
+      <button onclick="addExercise()" class="btn add-btn">+ Add Exercise</button>
+      <div class="button-group template-group">
+        <button onclick="loadHistory()" class="btn tertiary">Load History</button>
+        <button onclick="loadTemplate()" class="btn tertiary">Load Template</button>
+      </div>
+      <section class="chart-section">
+        <h3>Progress Chart</h3>
+        <canvas id="progress-chart"></canvas>
+      </section>
+    </section>
+  </main>
+  <div id="ad-modal" class="ad-modal">
+    <div class="ad-content">
+      <p class="ad-text">Advertisement</p>
+      <div id="ad-timer" class="ad-timer">Rest: 2:00</div>
+    </div>
+  </div>
+</body>
+</html>
